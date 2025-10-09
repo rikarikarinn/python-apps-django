@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>My Portfolio</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'work05/style.css' %}">
+</head>
+<body>
+
+  <header>
+    <h1>My Portfolio</h1>
+    <nav>
+      <a href="#about">About</a>
+      <a href="#hobby">Hobby</a>
+      <a href="#goals">Goals</a>
+    </nav>
+  </header>
+
+  <div class="header-image">
+    <img src="{% static 'work05/img/desktop-wallpaper-hawaii-sunset-1600x1200-hawaiian-sunset.jpg' %}" alt="ヘッダー画像">
+  </div>
+
+  <section id="about">
+    <h2>About</h2>
+    <p class="subtitle">私について</p>
+    <div class="about-content">
+      <img src="{% static 'work05/img/IMG_9330.jpg' %}" alt="プロフィール画像">
+      <div class="text">
+        <p><strong>名前：</strong>Saano</p>
+        <p><strong>学校名：</strong>KADOKAWAドワンゴ情報工科学院</p>
+        <p><strong>好きな食べ物：</strong>パスタ</p>
+      </div>
+    </div>
+  </section>
+
+  <section id="hobby">
+    <h2>Hobby</h2>
+    <p class="subtitle">趣味・推し紹介</p>
+    <div class="card-grid">
+      <a class="card">
+        <img src="{% static 'work05/img/AdobeStock_259753060_Preview.jpeg' %}" alt="趣味1">
+        <h3>好きなこと</h3>
+        <p>Dance</p>
+      </a>
+      <a href="https://7order-official.com" target="_blank" class="card">
+        <img src="{% static 'work05/img/IMG_8803.jpg' %}" alt="趣味2">
+        <h3>アーティスト</h3>
+        <p>7ORDER</p>
+      </a>
+      <a href="https://www.instagram.com/_chanreeks_/" target="_blank" class="card">
+        <img src="{% static 'work05/img/IMG_9614.jpg' %}" alt="趣味3">
+        <h3>モデル</h3>
+        <p>りぃくす</p>
+      </a>
+    </div>
+  </section>
+
+  <section id="goals">
+    <h2>2025 Goals</h2>
+    <p class="subtitle">今年の目標</p>
+    <div class="goals-box">
+      <p>プログラミングをもっと勉強して、自分でアプリやサイトを作る</p>
+    </div>
+  </section>
+
+</body>
+</html>

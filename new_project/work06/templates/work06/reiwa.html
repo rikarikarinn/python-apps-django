@@ -1,0 +1,12 @@
+<h2>令和何年ですかツール</h2>
+<form method="post">
+  {% csrf_token %}
+  {{ form.as_p }}
+  <button type="submit">計算</button>
+</form>
+
+{% if result %}
+  <p>西暦は {{ result }} 年です</p>
+{% endif %}
+
+<a href="{% url 'work06_index' %}">トップへ戻る</a>

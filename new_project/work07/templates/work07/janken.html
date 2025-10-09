@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>ジャンケン</h1>
+
+    <p>あなたの手: {{user_hand}}</p>
+    <p>cpu: {{cpu_hand}}</p>
+    {% if outcome %}
+    <p>結果: {{outcome}}</p>
+    {% endif %}
+
+    <form method="get">
+        <button type="submit" name="hand" value="グー">グー</button>
+        <button type="submit" name="hand" value="チョキ">チョキ</button>
+        <button type="submit" name="hand" value="パー">パー</button>
+    </form>
+
+    <a href="{% url 'work07:top' %}">トップへ戻る</a>
+</body>
+</html>

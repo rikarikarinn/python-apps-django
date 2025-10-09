@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>おみくじ</h1>
+
+    <a href="{% url 'work07:omikuji' %}">おみくじを引く</a>
+    <p>結果: {{result}}</p>
+    <a href="{% url 'work07_top' %}">トップへ戻る</a>
+</body>
+</html>
