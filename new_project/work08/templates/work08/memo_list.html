@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>メモ一覧</title>
+</head>
+<body>
+    <h1>メモ一覧</h1>
+
+    <a href="{% url 'work08:memo_create' %}">＋ 新規作成</a>
+
+    <ul>
+        {% for memo in memos %}
+            <li>
+                <a href="{% url 'work08:memo_edit' memo.id %}">{{ memo.title }}</a>
+                {% if memo.image %}
+                    <img src="{{ memo.image.url }}" alt="memo image" width="100">
+                {% endif %}
+                <a href="{% url 'work08:memo_delete' memo.id %}" style="color:red;">削除</a>
+            </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

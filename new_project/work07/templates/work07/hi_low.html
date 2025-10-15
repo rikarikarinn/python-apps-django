@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Hi & Low ゲーム</h1>
+
+    {% if result %}
+        <p>前の数字: {{ old_number }}</p>
+        <p>新しい数字: {{ new_number }}</p>
+        <h2>{{ result }}</h2>
+        <a href="{% url 'work07:hi_low' %}">もう一度プレイ</a>
+    {% else %}
+        <p>現在の数字: {{ old_number }}</p>
+        <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="old_number" value="{{ old_number }}">
+            <button type="submit" name="choice" value="high">High（高い）</button>
+            <button type="submit" name="choice" value="low">Low（低い）</button>
+        </form>
+    {% endif %}
+
+    <br><br>
+    <a href="{% url 'work07:top' %}">トップへ戻る</a>
+</body>
+</html>

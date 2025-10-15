@@ -11,7 +11,7 @@ def omikuji(request):
 
 def janken(request):
     hands = ['グー', 'チョキ', 'パー']
-    user_hand = request.GET.get('hand')  # ←修正
+    user_hand = request.GET.get('hand')  # ← 修正済み
     cpu_hand = random.choice(hands)
     outcome = None
 
