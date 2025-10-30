@@ -146,3 +146,15 @@ LOGIN_REDIRECT_URL = 'work10:todo_list'
 LOGOUT_REDIRECT_URL = 'login'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+# setup basicauth middleware
+if os.environ.get("ENABLE_BASIC_AUTH") or "false" == "true":
+    MIDDLEWARE.append("basicauth.middleware.BasicAuthMiddleware")
+    BASICAUTH_USERS = {
+        os.environ.get("BASIC_AUTH_USERNAME"): os.environ.get("BASIC_AUTH_PASSWORD"),
+    }
+
+# ALLOWED HOSTS CSRF_TRUSTED_ORIGINS を設定
+# deploy setting for Railway
+ALLOWED_HOSTS = (os.environ.get("ALLOWED_HOSTS") or "").split(",")  # deploy for Railway
+CSRF_TRUSTED_ORIGINS = (os.environ.get("CSRF_TRUSTED_ORIGINS") or "").split(",")
