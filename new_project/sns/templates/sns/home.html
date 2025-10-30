@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'sns/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'sns/style.css' %}">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="sidebar_left">
+            <h1>Photos</h1>
+            <div class="sidebar_nav">
+                <nav>
+                    <ul>
+                        <li class="sidebar_li"><a href="#">ホーム</a></li>
+                        <li class="sidebar_li"><a href="#">検索</a></li>
+                        <li class="sidebar_li"><a href="#">通知</a></li>
+                        <li class="sidebar_li"><a href="#">プロフィール</a></li>
+                        <li class="sidebar_li"><a href="#">設定</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <div class="center">
+            <div class="filter">
+                <a href="#" class="recommended_btn">おすすめ</a>
+                <a href="#" class="follow_btn">フォロー</a>
+            </div>
+        </div>
+
+        <div class="sidebar_right">
+            <p class="odai_txt">本日のお題</p>
+            <div class="odai">
+                <p>今日の晩御飯</p>
+            </div>
+            <div class="btn_group">
+                <a href="#" class="tweet_btn">お題を投稿</a>
+                <a href="#" class="tweet_btn">今日の思い出を投稿</a>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+</html>

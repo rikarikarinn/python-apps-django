@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>検索ページ</title>
+  <link rel="stylesheet" href="static/sns/search.css">
+</head>
+<body>
+
+  <div class="page">
+    <div class="search_card">
+      <!-- 検索バー -->
+      <div class="search_box">
+        <input type="text" placeholder="検索">
+        <button class="search_icon">🔍</button>
+      </div>
+
+      <!-- 検索履歴 -->
+      <div class="search_history">
+        <p class="history_title">検索履歴</p>
+        <ul>
+          <li><span>nnnnnnnnnn</span><span class="delete">✖</span></li>
+          <li><span>nnnnnnnnn</span><span class="delete">✖</span></li>
+          <li><span>nnnnnnnn</span><span class="delete">✖</span></li>
+        </ul>
+      </div>
+
+      <hr>
+
+      <!-- あなたへのおすすめ -->
+      <div class="recommend">
+        <p class="recommend_title">あなたへのおすすめ</p>
+
+        <div class="user_item">
+          <div class="user_icon">アイコン</div>
+          <div class="user_name">名前</div>
+          <button class="follow_btn" onclick="toggleFollow(this)">フォロー</button>
+        </div>
+
+        <div class="user_item">
+          <div class="user_icon">アイコン</div>
+          <div class="user_name">名前</div>
+          <button class="follow_btn" onclick="toggleFollow(this)">フォロー</button>
+        </div>
+
+        <div class="user_item">
+          <div class="user_icon">アイコン</div>
+          <div class="user_name">名前</div>
+          <button class="follow_btn" onclick="toggleFollow(this)">フォロー</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function toggleFollow(btn) {
+      if (btn.innerText === "フォロー") {
+        btn.innerText = "フォロー中";
+        btn.style.backgroundColor = "#ccc";
+        btn.style.color = "#000";
+      } else {
+        btn.innerText = "フォロー";
+        btn.style.backgroundColor = "#000";
+        btn.style.color = "#fff";
+      }
+    }
+  </script>
+
+</body>
+</html>

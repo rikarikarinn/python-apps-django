@@ -41,6 +41,9 @@ INSTALLED_APPS = [
     'work06',
     'work07',
     'work08',
+    'work09',
+    'work10',
+    'sns',
 ]
 
 MIDDLEWARE = [
@@ -79,11 +82,15 @@ WSGI_APPLICATION = 'python_apps_django.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-        'NAME':'memo_db',
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'new_project_db',   # ← 作成したDB名
+        'USER': 'root',
+        'PASSWORD': 'test',         # ← さっき設定したパスワード
+        'HOST': 'localhost',
+        'PORT': '3306',
     }
 }
+
 
 
 # Password validation
@@ -120,11 +127,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/4.2/howto/static-files/
 
-STATIC_URL = 'static/'
+STATIC_URL = '/static/'
 
 import os
-MEDIA_URL = '/media/'  # ブラウザからアクセスするURL
+MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+LOGIN_URL = 'login'
+LOGIN_REDIRECT_URL = 'work10:todo_list'
+LOGOUT_REDIRECT_URL = 'login'
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field

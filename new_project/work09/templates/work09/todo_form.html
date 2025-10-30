@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TODO {{ mode|capfirst }}</title>
+<style>
+    /* === 全体スタイル === */
+    body {
+        font-family: 'Noto Sans JP', sans-serif;
+        background-color: #746e6e;
+        color: #eee;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        min-height: 100vh;
+    }
+
+    h1 {
+        color: #f0f0f0;
+        font-weight: 800;
+        letter-spacing: 1px;
+        margin-top: 40px;
+        margin-bottom: 30px;
+        border-bottom: 2px solid #330066;
+        padding-bottom: 10px;
+    }
+
+    /* === フォームカード === */
+    form {
+        background: #1a1a1a;
+        padding: 25px 30px;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0,0,0,0.7);
+        width: 90%;
+        max-width: 500px;
+        margin-bottom: 20px;
+        display: flex;
+        flex-direction: column;
+        gap: 15px;
+    }
+
+    input, select, textarea {
+        padding: 12px;
+        border: none;
+        border-radius: 10px;
+        background-color: #2a2a2a;
+        color: #f0f0f0;
+        width: 100%;
+        transition: background 0.2s;
+    }
+
+    input:focus, select:focus, textarea:focus {
+        outline: none;
+        background-color: #3a2a5c;
+        box-shadow: 0 0 8px rgba(128,0,255,0.5);
+    }
+
+    button {
+        background: linear-gradient(135deg, #6a0dad, #9b30ff);
+        color: #fff;
+        border: none;
+        padding: 12px 18px;
+        border-radius: 10px;
+        cursor: pointer;
+        font-weight: bold;
+        transition: all 0.3s;
+    }
+
+    button:hover {
+        transform: scale(1.05);
+        box-shadow: 0 4px 15px rgba(155,48,255,0.5);
+    }
+
+    .delete-btn {
+        background: #ff3f6c;
+    }
+
+    .delete-btn:hover {
+        box-shadow: 0 4px 15px rgba(255,63,108,0.5);
+        transform: scale(1.05);
+    }
+
+    a {
+        color: #bb66ff;
+        text-decoration: none;
+        margin-top: 10px;
+    }
+
+    a:hover {
+        text-decoration: underline;
+        color: #e0aaff;
+    }
+
+    @media (max-width: 600px) {
+        form {
+            padding: 20px;
+        }
+    }
+</style>
+</head>
+<body>
+<h1>TODO {% if mode == 'edit' %}修正{% else %}作成{% endif %}</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit">{% if mode == 'edit' %}更新{% else %}登録{% endif %}</button>
+</form>
+
+{% if mode == 'edit' %}
+<form method="post" action="{% url 'work09:delete' todo.pk %}">
+    {% csrf_token %}
+    <button type="submit" class="delete-btn">削除</button>
+</form>
+{% endif %}
+
+<p><a href="{% url 'work09:todo_list' %}">戻る</a></p>
+</body>
+</html>
