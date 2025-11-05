@@ -18,7 +18,8 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 SECRET_KEY = 'django-insecure-uo4)xlk)^l2ax&4y!1o*m*ofeq(hv*8)y53o&(h29%64mrlq$^'
 DEBUG = True
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = (os.environ.get("ALLOWED_HOSTS") or "").split(",")  # deploy for Railway
+CSRF_TRUSTED_ORIGINS = (os.environ.get("CSRF_TRUSTED_ORIGINS") or "").split(",")
 
 
 # Application definition
