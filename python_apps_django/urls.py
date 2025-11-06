@@ -5,12 +5,12 @@ from django.conf.urls.static import static
 from django.contrib.auth import views as auth_views
 from django.shortcuts import render
 
-# 👇 追加：トップページ用ビュー関数
+# --- トップページ（/）用ビュー ---
 def work_index(request):
     return render(request, "work_index.html")
 
 urlpatterns = [
-    path('', work_index, name='work_index'),  # 👈 ← これがルート用
+    path('', work_index, name='work_index'),  # ✅ ここでルートを追加！
 
     path('admin/', admin.site.urls),
     path('work05/', include('work05.urls')),
@@ -21,9 +21,11 @@ urlpatterns = [
     path('work10/', include('work10.urls')),
     path('sns/', include('sns.urls')),
 
+    # ログイン・ログアウト
     path('login/', auth_views.LoginView.as_view(template_name='work10/login.html'), name='login'),
     path('logout/', auth_views.LogoutView.as_view(next_page='login'), name='logout'),
 ]
 
+# メディア配信
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
