@@ -99,50 +99,36 @@ p a:hover {
 /* --- レスポンシブ --- */
 @media (max-width: 600px) {
 
-/* タイトル少し大きめ＆上に余白 */
+/* タイトル */
 h1 {
-  font-size: 2rem;
-  margin-top: 20px;
-  margin-bottom: 30px;
+  font-size: 1.8rem;
   text-align: center;
 }
 
-/* 結果表示（ループ部分）は縦にして中央に寄せる */
-.result-row {
-  flex-direction: column;
-  gap: 10px;
-  align-items: center; /* ← 中央寄せ */
-  text-align: center;  /* ← 中央寄せ */
+/* 画面中央に配置（超重要） */
+body {
+  display: flex;
+  justify-content: center;   /* 横の中央 */
+  align-items: center;        /* 縦の中央 */
+  min-height: 100vh;          /* 画面の高さ全体を使う */
+  margin: 0;
+  padding: 0;
+  flex-direction: column;     /* 上から縦に並べる */
 }
 
-/* ラベルと数字を中央揃えに */
-.label, .count {
-  width: 100%;
-  text-align: center;
-  font-size: 1.1rem; /* 少し大きめ */
-}
-
-/* ボタン（選択肢）の幅を広げる & 中央寄せ */
-.choice-item {
-  width: 90%;               /* ← スマホで広めに */
-  max-width: 350px;         /* ← 伸びすぎ防止 */
-  margin: 0 auto;           /* ← 中央配置 */
-  padding: 14px 16px;       /* ← 少し大きめ */
-  font-size: 1.1rem;        /* ← 文字も大きく */
+/* 薄い赤の枠（例：container） */
+.container {
+  margin: 0 auto;
+  padding: 20px;
+  width: 90%;
+  max-width: 380px;
+  background: #fff5f5;        /* 薄い赤の背景 */
+  border: 2px solid #ffcccc;  /* 薄い赤の枠 */
+  border-radius: 12px;
   text-align: center;
 }
 
-/* form 全体も中央寄せ＋狭すぎないよう調整 */
-form {
-  width: 100%;
-  max-width: 400px;
-  margin: 0 auto;         /* ← 中央寄せ */
-  padding: 20px 15px;
 }
-}
-
-
-
 </style>
 </head>
 <body>
