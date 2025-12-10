@@ -18,9 +18,6 @@ DEBUG = os.getenv("DEBUG", "True").lower() in ("true", "1", "yes")
 # ============================================================
 # HOSTS
 # ============================================================
-# ============================================================
-# HOSTS
-# ============================================================
 ALLOWED_HOSTS = [
     'localhost',
     '127.0.0.1',
@@ -32,7 +29,6 @@ CSRF_TRUSTED_ORIGINS = [
     'http://localhost:8000',
     'http://127.0.0.1:8000',
 ]
-
 
 # ============================================================
 # APPLICATIONS
@@ -75,7 +71,7 @@ ROOT_URLCONF = 'python_apps_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],  # 共通テンプレートディレクトリ
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -95,12 +91,10 @@ WSGI_APPLICATION = 'python_apps_django.wsgi.application'
 # ============================================================
 DATABASE_URL = os.getenv("DATABASE_URL")
 if DATABASE_URL:
-    # Railway 本番環境用
     DATABASES = {
         "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600)
     }
 else:
-    # ローカル開発用 MySQL
     DATABASES = {
         "default": {
             "ENGINE": os.getenv("DB_ENGINE", "django.db.backends.mysql"),
@@ -132,12 +126,14 @@ USE_I18N = True
 USE_TZ = True
 
 # ============================================================
-# STATIC / MEDIA
+# STATIC / MEDIA（Admin 404 対策済）
 # ============================================================
 STATIC_URL = '/static/'
 
-#STATIC_ROOT = BASE_DIR / 'staticfiles'
+# ★★★ これが絶対必要（admin の static もここにまとめられる） ★★★
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 
+# ローカル用（任意 static ディレクトリ）
 STATICFILES_DIRS = [
     BASE_DIR / 'static',
 ]
@@ -171,4 +167,3 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # GEMINI API KEY
 # ============================================================
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-
