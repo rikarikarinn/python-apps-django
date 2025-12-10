@@ -86,28 +86,46 @@ WSGI_APPLICATION = 'python_apps_django.wsgi.application'
 # ============================================================
 # DATABASE
 # ============================================================
-DATABASE_URL = os.getenv("DATABASE_URL")
 
-if DATABASE_URL:
-    # 本番用 PostgreSQL (Railway)
-    DATABASES = {
-        "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+# PostgreSQL 用はコメントアウト
+# DATABASE_URL = os.getenv("DATABASE_URL")
+# if DATABASE_URL:
+#     # 本番用 PostgreSQL (Railway)
+#     DATABASES = {
+#         "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600)
+#     }
+# else:
+#     ローカル開発用 MySQL
+#     DATABASES = {
+#         "default": {
+#             "ENGINE": os.getenv("DB_ENGINE", "django.db.backends.mysql"),
+#             "NAME": os.getenv("DB_NAME", "new_project_db"),
+#             "USER": os.getenv("DB_USER", "root"),
+#             "PASSWORD": os.getenv("DB_PASSWORD", "test"),
+#             "HOST": os.getenv("DB_HOST", "127.0.0.1"),
+#             "PORT": os.getenv("DB_PORT", "3306"),
+#             "OPTIONS": {
+#                 "init_command": "SET sql_mode='STRICT_TRANS_TABLES'"
+#             },
+#         }
+#     }
+
+# ============================================================
+# Railway MySQL 用
+# ============================================================
+DATABASES = {
+    "default": {
+        "ENGINE": "django.db.backends.mysql",
+        "NAME": os.getenv("MYSQLDATABASE", "railway"),
+        "USER": os.getenv("MYSQLUSER", "root"),
+        "PASSWORD": os.getenv("MYSQLPASSWORD", ""),
+        "HOST": os.getenv("MYSQLHOST", "mysql.railway.internal"),
+        "PORT": os.getenv("MYSQLPORT", "3306"),
+        "OPTIONS": {
+            "init_command": "SET sql_mode='STRICT_TRANS_TABLES'"
+        },
     }
-else:
-    # ローカル開発用 MySQL
-    DATABASES = {
-        "default": {
-            "ENGINE": os.getenv("DB_ENGINE", "django.db.backends.mysql"),
-            "NAME": os.getenv("DB_NAME", "new_project_db"),
-            "USER": os.getenv("DB_USER", "root"),
-            "PASSWORD": os.getenv("DB_PASSWORD", "test"),
-            "HOST": os.getenv("DB_HOST", "127.0.0.1"),
-            "PORT": os.getenv("DB_PORT", "3306"),
-            "OPTIONS": {
-                "init_command": "SET sql_mode='STRICT_TRANS_TABLES'"
-            },
-        }
-    }
+}
 
 # ============================================================
 # PASSWORD VALIDATORS
