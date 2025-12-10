@@ -4,6 +4,7 @@ from django.db import models
 class Question(models.Model):
     question_text = models.CharField("質問内容", max_length=200)
     pub_date = models.DateTimeField("公開日")
+    is_active = models.BooleanField("表示するか", default=True)  # ←追加
 
     def __str__(self):
         return self.question_text
