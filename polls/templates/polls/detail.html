@@ -104,16 +104,44 @@ p a:hover {
 
 /* --- レスポンシブ --- */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 1.8rem;
+  body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;   /* 縦方向の中央寄せ */
+    align-items: center;       /* 横方向の中央寄せ */
+    min-height: 100vh;         /* 全画面の高さ確保 */
+    padding: 40px 10px;        /* 上下が狭すぎないよう調整 */
   }
+
+  h1 {
+    font-size: 1.9rem;
+    margin-bottom: 30px;
+  }
+
+  ul {
+    width: 100%;
+    max-width: 350px;          /* ボタン横幅を広めに */
+  }
+
+  li {
+    flex: 1 1 100%;
+  }
+
+  a {
+    padding: 20px 0;           /* ボタンを大きく */
+    font-size: 1.2rem;         /* 文字を少し大きく */
+  }
+
   form {
     padding: 20px 15px;
   }
+
   .choice-item {
-    padding: 10px 12px;
+    padding: 12px 14px;
+    font-size: 1.1rem;
   }
 }
+
 
 </style>
 </head>

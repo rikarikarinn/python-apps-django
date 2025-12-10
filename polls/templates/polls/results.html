@@ -98,18 +98,49 @@ p a:hover {
 
 /* --- レスポンシブ --- */
 @media (max-width: 600px) {
-  h1 {
-    font-size: 1.8rem;
-  }
-  .result-row {
-    flex-direction: column;
-    gap: 8px;
-  }
-  .label, .count {
-    width: auto;
-    text-align: center;
-  }
+
+/* タイトル少し大きめ＆上に余白 */
+h1 {
+  font-size: 2rem;
+  margin-top: 20px;
+  margin-bottom: 30px;
+  text-align: center;
 }
+
+/* 結果表示（ループ部分）は縦にして中央に寄せる */
+.result-row {
+  flex-direction: column;
+  gap: 10px;
+  align-items: center; /* ← 中央寄せ */
+  text-align: center;  /* ← 中央寄せ */
+}
+
+/* ラベルと数字を中央揃えに */
+.label, .count {
+  width: 100%;
+  text-align: center;
+  font-size: 1.1rem; /* 少し大きめ */
+}
+
+/* ボタン（選択肢）の幅を広げる & 中央寄せ */
+.choice-item {
+  width: 90%;               /* ← スマホで広めに */
+  max-width: 350px;         /* ← 伸びすぎ防止 */
+  margin: 0 auto;           /* ← 中央配置 */
+  padding: 14px 16px;       /* ← 少し大きめ */
+  font-size: 1.1rem;        /* ← 文字も大きく */
+  text-align: center;
+}
+
+/* form 全体も中央寄せ＋狭すぎないよう調整 */
+form {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;         /* ← 中央寄せ */
+  padding: 20px 15px;
+}
+}
+
 
 
 </style>
