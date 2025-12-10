@@ -62,7 +62,7 @@ ROOT_URLCONF = 'python_apps_django.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'templates'],
+        'DIRS': [BASE_DIR / 'templates'],  # 共通テンプレートディレクトリ
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -78,14 +78,16 @@ TEMPLATES = [
 WSGI_APPLICATION = 'python_apps_django.wsgi.application'
 
 # ============================================================
-# DATABASE (Railway / Local 自動切替)
+# DATABASE（Railway / Local 自動切替）
 # ============================================================
 DATABASE_URL = os.getenv("DATABASE_URL")
 if DATABASE_URL:
+    # Railway 本番環境用
     DATABASES = {
         "default": dj_database_url.parse(DATABASE_URL, conn_max_age=600)
     }
 else:
+    # ローカル開発用 MySQL
     DATABASES = {
         "default": {
             "ENGINE": os.getenv("DB_ENGINE", "django.db.backends.mysql"),
