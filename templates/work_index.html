@@ -4,88 +4,90 @@
   <meta charset="UTF-8">
   <title>Work 選択ページ</title>
   <style>
+    body {
+     font-family: 'Noto Sans JP', sans-serif;
+     background: linear-gradient(135deg, #ece9e6, #ffffff);
+     color: #333;
+     text-align: center;
+     padding: 50px 16px; /* モバイル用に少し縮める */
+     margin: 0;
+   }
+
+   /* タイトル */
+   h1 {
+     font-size: 2rem;
+     margin-bottom: 30px;
+     position: relative;
+     display: inline-block;
+   }
+
+   h1::after {
+     content: '';
+     position: absolute;
+     bottom: -8px;
+     left: 50%;
+     transform: translateX(-50%);
+     width: 50%;
+     height: 3px;
+     background: #333;
+     border-radius: 3px;
+   }
+
+   /* リスト */
+   ul {
+     list-style: none;
+     padding: 0;
+     display: flex;
+     flex-direction: column; /* スマホは縦一列に */
+     justify-content: center;
+     gap: 16px;
+     max-width: 360px; /* スマホ最大幅 */
+     margin: 0 auto;
+   }
+
+   li {
+     width: 100%;
+   }
+
+   /* ボタン */
+   a {
+     display: block;
+     text-decoration: none;
+     background: #fff;
+     color: #333;
+     border-radius: 12px;
+     padding: 20px 0; /* 高さを少し上げてタップしやすく */
+     box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+     font-size: 1.1rem; /* 文字大きめ */
+     font-weight: 600;
+     transition: all 0.3s ease;
+     width: 100%;
+   }
+
+   a:hover {
+     transform: translateY(-4px);
+     box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+     background: #333;
+     color: #fff;
+   }
+
+   /* モバイル最適化 */
+   @media (max-width: 600px) {
      body {
-      font-family: 'Noto Sans JP', sans-serif;
-      background: linear-gradient(135deg, #ece9e6, #ffffff);
-      color: #333;
-      text-align: center;
-      padding: 80px 20px;
-      margin: 0;
-    }
+       padding: 40px 12px;
+     }
 
-    /* タイトル */
-    h1 {
-      font-size: 2.4rem;
-      margin-bottom: 40px;
-      position: relative;
-      display: inline-block;
-    }
+     h1 {
+       font-size: 1.6rem;
+       margin-bottom: 24px;
+     }
 
-    h1::after {
-      content: '';
-      position: absolute;
-      bottom: -10px;
-      left: 50%;
-      transform: translateX(-50%);
-      width: 60%;
-      height: 3px;
-      background: #333;
-      border-radius: 3px;
-    }
-
-    /* リスト */
-    ul {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      gap: 20px;
-      max-width: 600px;
-      margin: 0 auto;
-    }
-
-    li {
-      flex: 1 1 40%;
-      max-width: 220px;
-    }
-
-    /* ボタン */
-    a {
-      display: block;
-      text-decoration: none;
-      background: #fff;
-      color: #333;
-      border-radius: 12px;
-      padding: 18px 0;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-      font-weight: 600;
-      transition: all 0.3s ease;
-    }
-
-    a:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 6px 14px rgba(0,0,0,0.15);
-      background: #333;
-      color: #fff;
-    }
-
-    /* フッター */
-    footer {
-      margin-top: 60px;
-      font-size: 0.9rem;
-      color: #777;
-    }
-
-    @media (max-width: 600px) {
-      h1 {
-        font-size: 1.8rem;
-      }
-      li {
-        flex: 1 1 100%;
-      }
-    }
-  </style>
+     a {
+       padding: 18px 0;
+       font-size: 1rem;
+     }
+   }
+ </style>
 </head>
 <body>
   <h1>Workを選んでください</h1>
