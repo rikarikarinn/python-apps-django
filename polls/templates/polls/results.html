@@ -98,37 +98,20 @@ p a:hover {
 
 /* --- レスポンシブ --- */
 @media (max-width: 600px) {
-
-/* タイトル */
-h1 {
-  font-size: 1.8rem;
-  text-align: center;
+  h1 {
+    font-size: 1.8rem;
+  }
+  .result-row {
+    flex-direction: column;
+    gap: 8px;
+  }
+  .label, .count {
+    width: auto;
+    text-align: center;
+  }
 }
 
-/* 画面中央に配置（超重要） */
-body {
-  display: flex;
-  justify-content: center;   /* 横の中央 */
-  align-items: center;        /* 縦の中央 */
-  min-height: 100vh;          /* 画面の高さ全体を使う */
-  margin: 0;
-  padding: 0;
-  flex-direction: column;     /* 上から縦に並べる */
-}
 
-/* 薄い赤の枠（例：container） */
-.container {
-  margin: 0 auto;
-  padding: 20px;
-  width: 90%;
-  max-width: 380px;
-  background: #fff5f5;        /* 薄い赤の背景 */
-  border: 2px solid #ffcccc;  /* 薄い赤の枠 */
-  border-radius: 12px;
-  text-align: center;
-}
-
-}
 </style>
 </head>
 <body>
