@@ -18,8 +18,21 @@ DEBUG = os.getenv("DEBUG", "True").lower() in ("true", "1", "yes")
 # ============================================================
 # HOSTS
 # ============================================================
-ALLOWED_HOSTS = (os.getenv("ALLOWED_HOSTS") or "localhost,127.0.0.1").split(",")
-CSRF_TRUSTED_ORIGINS = (os.getenv("CSRF_TRUSTED_ORIGINS") or "http://localhost:8000,http://127.0.0.1:8000").split(",")
+# ============================================================
+# HOSTS
+# ============================================================
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'python-apps-django-production-e22b.up.railway.app',
+]
+
+CSRF_TRUSTED_ORIGINS = [
+    'https://python-apps-django-production-e22b.up.railway.app',
+    'http://localhost:8000',
+    'http://127.0.0.1:8000',
+]
+
 
 # ============================================================
 # APPLICATIONS
@@ -153,10 +166,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # GEMINI API KEY
 # ============================================================
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
-
-ALLOWED_HOSTS = [
-    'localhost',
-    '127.0.0.1',
-    'python-apps-django-production-e22b.up.railway.app',
-]
 
