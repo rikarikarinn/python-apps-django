@@ -1,0 +1,71 @@
+/* 全体の背景設定 */
+body {
+  font-family: "Hiragino Sans", "Meiryo", sans-serif;
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* ページ中央配置 */
+.page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* 通知カード本体（ホーム中央エリアに合わせた幅） */
+.notice_card {
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+  width: calc(100vw - 600px); 
+  max-width: 700px;            
+  min-width: 600px;          
+  padding: 40px 60px;
+  text-align: center;
+  margin: 0 auto;
+}
+
+/* 最新通知（カード上部のテキスト） */
+.latest_notice {
+  font-size: 20px;
+  color: #333;
+  margin-bottom: 20px;
+}
+
+/* 区切り線 */
+hr {
+  border: none;
+  border-top: 1px solid #ccc;
+  width: 100%;
+  margin: 15px 0 25px;
+}
+
+/* 通知タイトル */
+.notice_card h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #222;
+}
+
+/* 通知リスト */
+.notice_card ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  border-top: 1px solid #ccc;
+}
+
+/* 通知項目 */
+.notice_card li {
+  font-size: 18px;
+  color: #333;
+  padding: 12px 0;
+  border-bottom: 1px solid #ccc;
+  text-align: left;          /* ✅ 左寄せで自然に */
+  margin-left: 20px;         /* ✅ 左に余白を足して整える */
+}

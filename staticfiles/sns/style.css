@@ -1,0 +1,105 @@
+body {
+}
+
+.container {
+  display: flex;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.sidebar_left {
+  width: 300px;
+  /* background-color: yellow; */
+  border-right: 1px solid #d3d3d3;
+}
+
+.sidebar_right {
+  width: 300px;
+  /* background-color: lightblue; */
+  border-left: 1px solid #d3d3d3;
+  text-align: center;
+}
+
+.center {
+  flex: 1;
+  /* background-color: lightgray; */
+  overflow-y: auto;
+}
+
+h1 {
+  font-size: 20px;
+  padding: 20px;
+}
+
+.sidebar_nav {
+  font-size: 32px;
+  margin: 100px 20px;
+}
+
+.sidebar_li {
+  margin: 100px 0;
+}
+
+.sidebar_li a {
+  padding: 10px 20px;
+}
+
+.sidebar_li a:hover {
+  background-color: #d3d3d3;
+  border-radius: 40px;
+}
+
+.odai_txt {
+  font-size: 36px;
+  font-weight: bold;
+  text-align: center;
+  margin: 40px 0;
+}
+
+.odai {
+  display: inline-block; /* コンテンツ幅に縮む */
+  font-size: 24px;
+  padding: 65px 60px;
+  background-color: #fbf7f7;
+  border: 1px solid #000000;
+  border-radius: 20px;
+  text-align: center; /* 内側のテキストも中央 */
+}
+
+.btn_group {
+  margin-top: 450px;
+  border-top: 1px solid #d3d3d3;
+}
+
+.tweet_btn {
+  padding: 10px 20px;
+  margin: 30px 0;
+  font-size: 24px;
+  display: inline-block;
+  background-color: #000;
+  color: #fff;
+  border-radius: 20px;
+}
+
+.tweet_btn:hover {
+  background-color: #555;
+}
+
+/* メイン */
+.filter {
+  display: flex;
+  justify-content: center; /* 均等配置ではなく中央寄せでもOK */
+  font-size: 32px;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.filter a {
+  padding: 5px 200px;
+  text-decoration: none;
+  color: black;
+
+}
+
+.filter .follow_btn {
+  border-left: 2px solid #d3d3d3; /* 👈 左に線を追加 */
+}
