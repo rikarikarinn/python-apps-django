@@ -154,5 +154,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # ============================================================
 GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
 
-ALLOWED_HOSTS = ['*']
-ALLOWED_HOSTS = ['localhost', '127.0.0.1']
+ALLOWED_HOSTS = [
+    'localhost',
+    '127.0.0.1',
+    'python-apps-django-production-e22b.up.railway.app',
+]
+
