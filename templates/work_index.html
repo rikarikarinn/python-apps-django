@@ -71,22 +71,23 @@
      color: #fff;
    }
 
-   /* モバイル最適化 */
+   /* スマホ用調整 */
    @media (max-width: 600px) {
-     body {
-       padding: 40px 12px;
-     }
-
-     h1 {
-       font-size: 1.6rem;
-       margin-bottom: 24px;
-     }
-
-     a {
-       padding: 18px 0;
-       font-size: 1rem;
-     }
-   }
+      body {
+        padding-top: 40px;   /* 上に余白 → ボタンが下になりすぎない */
+      }
+      h1 {
+        font-size: 1.8rem;
+        margin-bottom: 25px;
+      }
+      a {
+        font-size: 1.4rem;   /* さらに文字大きめ */
+        padding: 22px 0;
+      }
+      li {
+        max-width: 360px;   /* スマホだと横幅広め */
+      }
+    }
  </style>
 </head>
 <body>
