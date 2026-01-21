@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>在庫履歴</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        a { color: #4fc3f7; text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #333; padding: 8px; text-align: left; }
+        th { background-color: #1e1e1e; }
+        tr:nth-child(even) { background-color: #1a1a1a; }
+        .in { color: #4caf50; font-weight: bold; }
+        .out { color: #f44336; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>在庫履歴</h1>
+
+    <p><a href="{% url 'item_list' %}">在庫一覧に戻る</a></p>
+
+    <table>
+        <tr>
+            <th>商品名</th>
+            <th>種類</th>
+            <th>数量</th>
+            <th>日時</th>
+        </tr>
+        {% for history in histories %}
+        <tr>
+            <td>{{ history.item.name }}</td>
+            <td class="{% if history.action == 'IN' %}in{% else %}out{% endif %}">
+                {{ history.get_action_display }}
+            </td>
+            <td>{{ history.quantity }}</td>
+            <td>{{ history.created_at }}</td>
+        </tr>
+        {% empty %}
+        <tr>
+            <td colspan="4">履歴がありません</td>
+        </tr>
+        {% endfor %}
+    </table>
+</body>
+</html>

@@ -1,0 +1,57 @@
+<!-- zaiko/templates/zaiko/stock_form.html -->
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>在庫入庫</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        input {
+            padding: 8px;
+            margin-bottom: 10px;
+            border-radius: 4px;
+            border: 1px solid #333;
+            background-color: #1e1e1e;
+            color: #e0e0e0;
+        }
+        button {
+            padding: 8px 16px;
+            background-color: #4fc3f7;
+            border: none;
+            border-radius: 4px;
+            color: #121212;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #26a6d1;
+        }
+        a {
+            color: #4fc3f7;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <h1>{{ item.name }} の入庫</h1>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">入庫</button>
+    </form>
+
+    <p><a href="{% url 'item_list' %}">一覧に戻る</a></p>
+</body>
+</html>

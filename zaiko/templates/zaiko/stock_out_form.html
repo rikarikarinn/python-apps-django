@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+    <meta charset="UTF-8">
+    <title>出庫処理</title>
+    <style>
+        body {
+            background-color: #121212;
+            color: #e0e0e0;
+            font-family: sans-serif;
+            padding: 20px;
+        }
+        label {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="number"] {
+            padding: 5px;
+            margin-top: 5px;
+            width: 100px;
+        }
+        button {
+            margin-top: 10px;
+            padding: 5px 10px;
+            background-color: #4fc3f7;
+            border: none;
+            color: #121212;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #29b6f6;
+        }
+        a {
+            color: #4fc3f7;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+    <h2>{{ item.name }} の出庫</h2>
+
+    <form method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <button type="submit">出庫</button>
+    </form>
+
+    <a href="{% url 'item_list' %}">一覧に戻る</a>
+</body>
+</html>
