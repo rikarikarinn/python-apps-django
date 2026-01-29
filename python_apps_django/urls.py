@@ -24,6 +24,7 @@ urlpatterns = [
     path('work10/', include('work10.urls')),
     path('sns/', include('sns.urls')),
     path('zaiko/', include('zaiko.urls')),
+    path('music/', include('music.urls')),
 
 
     # ログイン・ログアウト
